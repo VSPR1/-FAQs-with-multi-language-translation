@@ -1,0 +1,13 @@
+const translate = require('googletrans').translate;
+
+const translateQuestion = async (text, lang) => {
+  try {
+    const translation = await translate(text, { to: lang });
+    return translation.text;
+  } catch (err) {
+    console.error('Translation Error:', err);
+    return text; // Fallback to original text if translation fails
+  }
+};
+
+module.exports = translateQuestion;
